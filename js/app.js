@@ -85,8 +85,24 @@ function updateTotalPrice() {
     const deliveryPrice = parseInt(deliveryCost.innerText);
     const totalprice = bestPrice + memoryPrice + storagePrice + deliveryPrice;
     totalCost.innerText = totalprice;
+    totalPriceMac.innerText = totalprice;
     return totalprice;
 }
+// promo code part 
+document.getElementById('btn-apply').addEventListener('click', function () {
+    const userPomoInput = document.getElementById('user-pomo-input');
+    const userPomoInputCode = userPomoInput.value;
+    if (userPomoInputCode == 'stevekaku') {
+        const disbled = document.getElementById('user-pomo-input').disabled = true;
+        const discuntText = total.innerText;
+        const discuntNumber = parseInt(discuntText);
+        const discunt = discuntNumber * .20;
+        const discuntTotal = total.innerText - discunt;
+        total.innerText = discuntTotal;
+    }
+    userPomoInput.value = '';
+});
+
 
 
 
